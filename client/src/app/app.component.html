@@ -1,0 +1,69 @@
+<app-loading></app-loading>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+
+  <div class="flex-row navbar-nav">
+
+    <div class="menu" *ngIf="!isAuthenticated()">
+      <div class="main-logo">
+        <a class="nav-item nav-link" routerLink="/"><img src="https://s3-eu-west-1.amazonaws.com/getdispose/dispose.svg"
+            alt="dispose-logo"></a>
+      </div>
+      <div class="flex-row flex-end full-width">
+        <a mat-flat-button color="accent" class="nav-item nav-link" routerLink="/signup">Sign Up</a>
+        <a class="nav-item nav-link" mat-button color="primary" routerLink="/signin">Sign In</a>
+      </div>
+    </div>
+
+    <div class="menu" *ngIf="isAuthenticated()">
+      <div class="flex-row space-between full-width">
+        <app-person></app-person>
+        <div class="flex-row flex-end" *ngIf="isAuthenticated()">
+          <button class="nav-item nav-link" mat-button color="primary" routerLink="/">Anar a la Web</button>
+          <button class="nav-item nav-link" mat-flat-button color="accent" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="full-width fake">
+</div>
+
+<div class="message-container">
+  <div class="message-body {{message.type}}" *ngIf="message">
+    <app-message type="{{message.type}}" message="{{message.message}}"></app-message>
+    <a type="button" (click)="removeMessage()">
+      <mat-icon class="normal-icons">clear</mat-icon>
+    </a>
+  </div>
+</div>
+
+<div *ngIf="isAuthenticated()">
+  <div class="flex-row flex-end full-width" *ngIf="isCandidate()">
+    <a class="add-button nav-link" routerLink="/practice"><button mat-fab>
+        <mat-icon class="normal-icons">add</mat-icon>
+      </button></a>
+  </div>
+  <div class="flex-row flex-end full-width" *ngIf="!isCandidate()">
+    <div class="search-button">
+      <a class="nav-link" routerLink="/results">
+        <button style="width: 40px; height:40px;" mat-fab>
+          <mat-icon class="normal-icons">search</mat-icon>
+        </button>
+      </a>
+    </div>
+    <a class="add-button nav-link" routerLink="/question"><button mat-fab>
+        <mat-icon class="normal-icons">add</mat-icon>
+      </button></a>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

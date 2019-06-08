@@ -1,0 +1,80 @@
+.perfil-container{
+    width: 100%; 
+    bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 1;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+.perfil{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+
+
+
+}
+
+.perfil>*{
+    padding: 5px 0;
+}
+
+
+
+.perfil-info{
+    margin: 0 20px;
+}
+
+.perfil-info{
+    left: 0;
+}
+
+.perfil-info>.flex-row{
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.perfil-name{
+    font-size: 2.1vw;
+    line-break: normal;
+}
+
+.perfil-12{
+    font-size: 1.4vw;
+    font-family: 'Muli';
+    font-weight: lighter;
+}
+
+.button-badge{
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 700px){
+    .perfil-name{
+        font-size: 3.2vw;
+    
+    }
+
+    .perfil-12{
+        font-size: 2.2vw;
+    
+    }
+}

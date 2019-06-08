@@ -1,0 +1,60 @@
+<div class="form-center">
+  <div class="row">
+    <div *ngIf="isCandidate" class="margin-button-sign">
+      <button mat-flat-button color="accent" class="disabled btn1">Candidate</button>
+      <button mat-stroked-button color="accent" (click)="setRole()" class="active btn1">Business</button>
+    </div>
+    <div *ngIf="!isCandidate" class="margin-button-sign">
+      <button mat-stroked-button color="accent" (click)="setRole()" class="active btn1">Candidate</button>
+      <button mat-flat-button color="accent" class="btn1 disabled">Business</button>
+    </div>
+  </div>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label *ngIf="!submitted">Username</mat-label>
+        <mat-label *ngIf="submitted && formData.username.errors.required">Username obligatori</mat-label>
+        <mat-label *ngIf="submitted && formData.username.errors.minlength">6 caràcters o més</mat-label>
+        <mat-label *ngIf="submitted && formData.username.errors.maxlength">25 caràcters o menys</mat-label>
+
+        <input matInput required type="text" autocomplete="username" formControlName="username" class="form-control" />
+
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+
+        <mat-label *ngIf="!submitted">Email</mat-label>
+        <mat-label *ngIf="submitted && formData.email.errors.required">Email obligatori</mat-label>
+        <mat-label *ngIf="submitted && formData.email.errors.minlength">6 caràcters o més</mat-label>
+        <mat-label *ngIf="submitted && formData.email.errors.maxlength">25 caràcters o menys</mat-label>
+        <input matInput required type="email" formControlName="email" class="form-control" />
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label *ngIf="!submitted">Nom</mat-label>
+        <mat-label *ngIf="submitted && formData.name.errors.required">Nom obligatori</mat-label>
+        <mat-label *ngIf="submitted && formData.name.errors.maxlength">40 caràcters o menys</mat-label>
+        <input matInput required type="text" formControlName="name" class="form-control" />
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label *ngIf="!submitted">Password</mat-label>
+        <mat-label *ngIf="submitted && formData.password.errors.required">Password obligatori</mat-label>
+        <mat-label *ngIf="submitted && formData.password.errors.maxlength">100 caràcters o menys</mat-label>
+        <input matInput autocomplete="current-password" required type="password" formControlName="password"
+          class="form-control" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-group button">
+      <button class="btn btn-primary" mat-raised-button color="primary">Sign Up</button>
+
+    </div>
+    <br>
+    <h6>Llegeixi les nostres <a class="accent no-decoration" routerLink="/policy">Polítiques</a></h6>
+  </form>
+</div>

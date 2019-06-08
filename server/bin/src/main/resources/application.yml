@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB:dispose_db}?useSSL=false
+    username: ${MYSQL_USER:brugui2304}
+    password: ${MYSQL_PASSWORD:bruguisito}
+    driver-class-name: com.mysql.jdbc.Driver
+    initialization-mode: always
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    time-zone: UTC
+
+server:
+  port: 8080
+  compression:
+    enabled: true
+
+app:
+  domain: https://api.getdispose.com
+  s3bucket: https://s3.eu-west-1.amazonaws.com/getdispose/
+  jwtSecret: JWTSuperSecretKey
+  jwtExpirationInMs: 640000000
+      

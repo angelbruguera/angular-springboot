@@ -1,0 +1,18 @@
+<div class="perfil-container">
+  <div class="perfil" *ngIf="perfil">
+    <img class="perfil-img" src="{{perfil.profileURL}}" alt="{{perfil.name}}">
+    <div class="perfil-info flex-column">
+      <p class="perfil-name">{{perfil.name}}</p>
+      <p class="accent perfil-12">{{perfil.username}}</p>
+      <div class="button-badge" *ngIf="!isCandidate">
+        <a routerLink="/me/questions">
+          <button mat-raised-button color="primary" matBadgeColor="accent">Preguntes</button>
+        </a>
+      </div>
+      <div class="button-badge" *ngIf="isCandidate">
+        <a routerLink="/me/results">
+          <button mat-raised-button color="primary" matBadgeColor="accent">Resultats</button></a>
+      </div>
+    </div>
+  </div>
+</div>

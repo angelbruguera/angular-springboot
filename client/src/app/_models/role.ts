@@ -1,0 +1,4 @@
+export enum Role {
+    CANDIDATE = 'ROLE_CANDIDATE',
+    BUSINESS = 'ROLE_BUSINESS'
+}

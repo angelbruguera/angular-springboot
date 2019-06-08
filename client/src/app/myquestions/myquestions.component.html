@@ -1,0 +1,36 @@
+<div class="container-component" *ngIf="questions.length!=0">
+  <div class="flex-column mq-list">
+    <div class="flex-column mq-item" *ngFor="let question of questions;let indexQuestion=index;">
+      <div class="flex-column center-select inside-contain">
+        <img class="mq-img" src="{{question.skillImage}}" alt="skill-icon" />
+        <h2 class="accent">Enunciat </h2>
+        <h3 class="inside-text break-word enunciat">{{question.enunciat}}</h3>
+      </div>
+      <div class="mq-answer inside-contain">
+        <h6 class="accent">Resposta 1</h6>
+        <h4 class="inside-text break-word">{{question.resposta1}}</h4>
+      </div>
+      <div class="mq-answer inside-contain">
+        <h6 class="accent">Resposta 2</h6>
+        <h4 class="inside-text break-word">{{question.resposta2}}</h4>
+      </div>
+      <div class="mq-answer inside-contain">
+        <h6 class="accent">Resposta 3</h6>
+        <h4 class="inside-text break-word">{{question.resposta3}}</h4>
+      </div>
+      <div class="mq-answer inside-contain">
+        <h6 class="accent">Resposta 4</h6>
+        <h4 class="inside-text break-word">{{question.resposta4}}</h4>
+      </div>
+      <div class="mq-button flex-row">
+        <button (click)="deleteQuestion(question.id, indexQuestion)" mat-stroked-button color="warn">Borrar
+          pregunta</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="empty" *ngIf="questions.length==0">
+  <p><img class="empty-icon" width="100px" src="assets/reactions/ko.svg" alt="no-questions"></p>
+  <h2 class="accent">No has creat preguntes</h2>
+</div>

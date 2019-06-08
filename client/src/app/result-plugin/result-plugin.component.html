@@ -1,0 +1,23 @@
+<div>
+  <div class="top full-width flex-row">
+    <p>Fet per <span class="accent">{{practice.candidateUsername}}</span>
+      ({{practice.respostesCorrectes}} /
+      {{practice.preguntes - practice.respostesContestades}})</p>
+    <div [className]="practice.porcentatge >= 75 ? 'verd':practice.porcentatge >= 50 ? 'groc': 'vermell'">
+      <div class="progress-skill">
+
+        <mat-progress-spinner [diameter]="60" class="progress-spinner two" [value]="100">
+        </mat-progress-spinner>
+        <mat-progress-spinner [diameter]="60" class="progress-spinner one" [value]="practice.porcentatge">
+        </mat-progress-spinner>
+        <img class="img-skill" width="25px" src="{{practice.skillImage}}" alt="skillPractice">
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <app-plugin-question [questions]="practice.questions" [answers]="practice.answers"></app-plugin-question>
+</div>

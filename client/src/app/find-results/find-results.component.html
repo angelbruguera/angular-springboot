@@ -1,0 +1,32 @@
+<div style="width: auto;" class="container-component margin-20">
+  <div *ngFor="let skill of skills;let i = index">
+    <div *ngIf="i==countSkill" class="flex-column center-select">
+      <div class="skillObj">
+        <a type="button" (click)="goLeft()">
+          <mat-icon class="normal-icons">keyboard_arrow_left</mat-icon>
+        </a>
+        <img style="width: 50px" src="{{skill.urlImage}}" alt="{{skill.skillId}}">
+        <a type="button" (click)="goRight()">
+          <mat-icon class="normal-icons">keyboard_arrow_right</mat-icon>
+        </a>
+      </div>
+      <p>{{skill.skillName}}</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="practices.length==0">
+  <div style="height: 70vh;" class="empty">
+    <img class="empty-icon" width="100px" src="assets/reactions/skull.svg" alt="no-practices">
+    <h2 class="accent">No hi han practiques</h2>
+  </div>
+</div>
+<div *ngIf="practices.length!=0">
+  <div class="container-component">
+    <div class="div-component margin-20" *ngIf="practices.length!=0">
+      <div *ngFor="let practice of practices">
+        <app-result-plugin [practice]="practice"></app-result-plugin>
+      </div>
+    </div>
+  </div>
+</div>

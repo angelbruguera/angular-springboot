@@ -1,0 +1,140 @@
+<div class="container-component" *ngIf="skills.length>=1">
+  <div class="div-component margin-20 center-select" *ngIf="!start">
+    <div class="skill-section" *ngFor="let skill of skills;let i = index">
+      <div *ngIf="i==numSkill" class="flex-column center-select">
+        <div class="skillObj">
+          <div class="button">
+            <a *ngIf="skills.length>1" type="button" (click)="goLeft()">
+              <mat-icon class="normal-icons">keyboard_arrow_left</mat-icon>
+            </a>
+          </div>
+          <img style="width: 50px" src="{{skill.urlImage}}" alt="{{skill.skillId}}">
+          <div class="button">
+            <a *ngIf="skills.length>1" type="button" (click)="goRight()">
+              <mat-icon class="normal-icons">keyboard_arrow_right</mat-icon>
+            </a>
+          </div>
+        </div>
+        <p>{{skill.skillName}}</p>
+      </div>
+    </div>
+    <div class="info-section accent">
+      <p>
+        Es el nostre deure informar que la pràctica
+        que estàs a punt de començar substituirà
+        la pràctica anterior, en cas que l'hagis realitzat
+        anteriorment. </p>
+      <br />
+      <p>Sigues conscient de valorar si és
+        necessàri perdre la pràctica anterior.
+      </p>
+    </div>
+    <div class="button-section">
+      <button mat-flat-button type="button" class="green" (click)="startPractice()">Start</button>
+    </div>
+  </div>
+  <div class="container-component margin-10" *ngIf="start">
+    <div class="div-component center-select">
+      <div *ngFor="let question of practice.questions; let i = index">
+        <div class="question-container" *ngIf="i==numQuestion">
+          <!----------->
+          <p>{{numQuestion}} de {{practice.preguntes}}</p>
+          <div class="flex-row question-user">
+            <p class="mini">Creada per {{question.questionUsername}}</p>
+            <img class="perfil-img" src="{{question.questionProfile}}" alt="" srcset="">
+          </div>
+          <div class="flex-column  center-select inside-contain full-width">
+            <h4 class="accent">Enunciat </h4>
+            <h5 class="inside-text break-word center-select enunciat flex-row">{{question.enunciat}}</h5>
+          </div>
+          <div [className]="numSeleccionat == 1 ? 'green-icon':none">
+            <a type="button" class="margin-check" (click)="setRespostaSeleccionada(question.resposta1,1,question.id)">
+              <div class="mq-answer  hover-answer break-word flex-row inside-contain full-width">
+
+
+                <div class="margin-5">
+                  <mat-icon class="normal-icons">done</mat-icon>
+                </div>
+
+                <div class="flex-column">
+                  <h6 class="accent">Resposta 1</h6>
+                  <div class="inside-text flex-row space-between">
+                    <p class="break-word">{{question.resposta1}}</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div [className]="numSeleccionat == 2 ? 'green-icon':none">
+            <a type="button" class="margin-check" (click)="setRespostaSeleccionada(question.resposta2,2,question.id)">
+              <div class="mq-answer hover-answer flex-row inside-contain full-width">
+
+
+                <div class="margin-5">
+                  <mat-icon class="normal-icons">done</mat-icon>
+                </div>
+
+                <div class="flex-column">
+                  <h6 class="accent">Resposta 2</h6>
+                  <div class="inside-text flex-row space-between">
+                    <p class="break-word">{{question.resposta2}}</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div [className]="numSeleccionat == 3 ? 'green-icon':none">
+            <a type="button" class="margin-check" (click)="setRespostaSeleccionada(question.resposta3,3,question.id)">
+              <div class="mq-answer hover-answer flex-row inside-contain full-width full-width">
+
+                <div class="margin-5">
+                  <mat-icon class="normal-icons">done</mat-icon>
+                </div>
+
+                <div class="flex-column">
+                  <h6 class="accent">Resposta 3</h6>
+                  <div class="inside-text flex-row space-between">
+                    <p class="break-word">{{question.resposta3}}</p>
+                  </div>
+                </div>
+
+              </div>
+            </a>
+          </div>
+          <div [className]="numSeleccionat == 4 ? 'green-icon':none">
+            <a type="button" class="margin-check " (click)="setRespostaSeleccionada(question.resposta4,4,question.id)">
+              <div class="mq-answer hover-answer flex-row inside-contain full-width">
+                <div class="margin-5">
+                  <mat-icon class="normal-icons">done</mat-icon>
+                </div>
+
+
+                <div class="flex-column">
+                  <h6 class="accent">Resposta 4</h6>
+                  <div class="inside-text flex-row space-between">
+                    <p class="break-word">{{question.resposta4}}</p>
+                  </div>
+                </div>
+
+
+              </div>
+            </a>
+          </div>
+          <div>
+            <button mat-flat-button color="accent" [disabled]="respostaSeleccionada==null" type="button"
+              (click)="nextQuestion()">
+              <p *ngIf="practice.questions.length-1!=numQuestion">Seguent</p>
+              <p *ngIf="practice.questions.length-1==numQuestion">Finalitzar</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!----------->
+  </div>
+</div>
+
+<div class="empty" *ngIf="skills.length<1">
+  <p><img class="empty-icon" width="100px" src="assets/reactions/angry.svg" alt="practice"></p>
+  <h2 class="accent">No hi ha skills amb suficients preguntes</h2>
+</div>

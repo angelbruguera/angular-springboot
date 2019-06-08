@@ -1,0 +1,76 @@
+<div style="margin: 5px;" class=" center-select">
+  <div style="padding: 10px;" class="flex-column">
+    <div class="flex-column center-select align-center full-width">
+      <h1 class="align-left accent border-bottom">Per que existeix Dispose?</h1>
+      <div class="margin-10">
+        <p class="margin-10">Dispose neix de la curiositat i la predisposició del ésser
+          humà per aprendre, sobretot en un àmbit que evoluciona constantment com és el tecnológic.</p>
+        <p class="margin-10">La nostre missió és oferir als nous programadors un punt
+          de vista crític sobre els seus coneixements i així potenciar e incrementar la seva línia d'aprentatge sobre
+          les noves tecnologies.</p>
+        <p class="margin-10">Les empreses <span class="accent">(Business)</span> podran
+          possar a proba als candidats <span class="accent">(Candidate)</span> amb preguntes generades pel seu equip
+          técnic i se'n podran visualitzar els resultats sobre cada tecnologia.</p>
+      </div>
+    </div>
+    <div class="margin-20 flex-column align-center full-width">
+      <div *ngIf="candidate" class="align-center center-select full-width flex-column">
+        <h2 class="accent border-bottom">Definim cada rol</h2>
+        <div class="flex-row center-select full-width margin-20">
+          <button mat-flat-button color="accent" class="disabled btn1">Que pot fer un Candidate</button>
+          <button mat-button color="accent" (click)="setRole()" class="active btn1">Que pot fer un Business</button>
+        </div>
+        <div class="flex-column  div-component margin-20 full-width center-select">
+          <div class="margin-20 ">
+            <img width="250" class="img-gif" src="assets/gifs/fer-practica.gif" alt="gif-practica">
+          </div>
+          <div class="align-center margin-20-total">
+            <p>L'usuari Candidate bàsicament se li permet entrenar el seu coneixement i observar els resultats que està
+              generant, creant-li així una satisfacció o una motivació depenent dels resultat que disposi. Dispose no ha
+              volgut crear un ranking públic per evitar excessos de desmotivació.</p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!candidate" class="align-center center-select full-width flex-column">
+        <h2 class="align-left accent border-bottom">Definim cada rol</h2>
+        <div class="flex-row center-select full-width margin-20">
+          <button mat-button color="accent" (click)="setRole()" class="active btn1">Que pot fer un
+            Candidate</button>
+          <button mat-flat-button color="accent" class="btn1 disabled">Que pot fer un Business</button>
+        </div>
+        <div class="flex-column  div-component margin-20 full-width center-select">
+          <div class="margin-20 ">
+            <img width="250" class="img-gif" src="assets/gifs/fer-pregunta.gif" alt="gif-pregunta">
+          </div>
+          <div class="align-center margin-20-total">
+            <p>L'usuari Business pot crear preguntes sobre la tecnologia que més l'interessi, per aixi contribuir en
+              millorar la dificultat de les preguntes i aixi, generar uns candidats més competitius.</p>
+          </div>
+        </div>
+        <div class="flex-column  div-component margin-20 full-width center-select">
+          <div class="margin-20 ">
+            <img width="250" class="img-gif" src="assets/gifs/buscar-resultats.gif" alt="gif-resultat">
+          </div>
+          <div class="align-center margin-20-total">
+            <p>L'usuari Business, també, pot buscar sobre la tecnologia que més li convingui, tots els resultats que
+              s'han generat pels candidats i les respectives preguntes que han contestat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="margin-20 flex-column center-select">
+      <div layout="row" layout-align="center center">
+        <div>
+          <p>All Rights Reserved © Dispose 2019</p>
+        </div>
+        <div class="margin-20 full-width footer-img">
+          <a routerLink="/"><img src="https://s3-eu-west-1.amazonaws.com/getdispose/dispose.svg" alt="dispose-logo"></a>
+        </div>
+        <div cla>
+          <p>by Angel Bruguera</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</div>

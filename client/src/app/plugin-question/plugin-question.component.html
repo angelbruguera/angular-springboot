@@ -1,0 +1,43 @@
+<div class="full-width center-select margin-10 flex-row" *ngIf="answers.length<10">
+  <p>No finalitzat <img class="empty-icon" width="25px" src="assets/reactions/oops.svg" alt="not-finished"></p>
+</div>
+
+<div class="full-width center-select margin-10 flex-row" *ngIf="questions.length<10">
+  <p>Algunes preguntes s'han borrat <img class="empty-icon" width="25px" src="assets/reactions/oops.svg"
+      alt="not-finished">
+  </p>
+</div>
+
+<div class="full-width flex-column questions-div" *ngIf="answers.length==10 && questions.length==10">
+  <div>
+    <div class="full-width flex-row" *ngFor="let question of questions; let i=index;">
+      <div class="full-width flex-column" *ngIf="indexQuestion==i">
+        <h4 class="accent">Pregunta {{indexQuestion+1}} </h4>
+        <h5 class="inside-text break-word enunciat flex-row">{{question.enunciat}}</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-width flex-column">
+    <div class="full-width flex-row" *ngFor="let answer of answers; let i=index;">
+      <div *ngIf="indexQuestion==i">
+        <h5 class="accent">Resposta seleccionada</h5>
+        <div class="inside-text flex-row space-between">
+          <h5 class="break-word align-center"><span *ngIf="answer.correcte">
+              <mat-icon class="normal-icons green-icon">done</mat-icon>
+            </span><span *ngIf="!answer.correcte">
+              <mat-icon class="normal-icons red-icon">clear</mat-icon>
+            </span>{{answer.respostaSeleccionada}} </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex-row full-width buttons-questions">
+    <button mat-button color="accent" type="button" (click)="goLeft()">
+      <mat-icon class="reverse accent normal-icons">forward</mat-icon>
+    </button>
+    <button color="accent" mat-button type="button" (click)="goRight()">
+      <mat-icon class="accent normal-icons">forward</mat-icon>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container-component">
+  <div class="div-component margin-20" *ngIf="practices.length!=0">
+    <div *ngFor="let practice of practices;let indexResult=index;">
+      <app-result-plugin [practice]="practice"></app-result-plugin>
+
+
+
+      <div class="full-width center-select">
+        <button mat-button color="warn" type="button" (click)="deletePractice(practice,indexResult)">
+          Borrar <mat-icon class="normal-icons">clear</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="empty" *ngIf="practices.length==0">
+  <p><img class="empty-icon" width="100px" src="assets/reactions/ko.svg" alt="no-practices"></p>
+  <h2 class="accent">No has fet practiques</h2>
+</div>
