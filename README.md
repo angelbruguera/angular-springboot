@@ -6,4 +6,4 @@ In frontend part I made an Angular SPA.
 
 You can view the result in getdispose.com
 
-*** It’s the final project in Degree ***
+**It’s the final project in Degree**
